@@ -5,12 +5,26 @@ import { Wrapper, Header } from './App.styled';
 import { ContactForm } from './contactForm/ContactForm';
 import { Filter } from './filter/Filter';
 import { ContactList } from './contactList/ContactList';
+const contactsKey = 'contacts';
 
 export class App extends Component {
   state = {
     contacts: [],
     filter: '',
   };
+
+  componentDidMount() {
+    const parsedContacts = JSON.parse(localStorage.getItem(contactsKey));
+    if (parsedContacts) {
+      this.setState({ contacts: parsedContacts });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.contacts !== prevState.contacts) {
+      localStorage.setItem(contactsKey, JSON.stringify(this.state.contacts));
+    }
+  }
 
   deleteContact = contactId => {
     this.setState(prevState => ({
