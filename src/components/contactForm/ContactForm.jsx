@@ -13,12 +13,12 @@ export class ContactForm extends Component {
     });
   };
 
-  // handleSubmit = event => {
-  //   event.preventDefault();
-  //   this.props.onSubmit(this.state.name, this.state.number);
+  handleSubmit = event => {
+    event.preventDefault();
+    this.props.onSubmit(this.state.name, this.state.number);
 
-  //   this.setState({ name: '', number: '' });
-  // };
+    this.setState({ name: '', number: '' });
+  };
 
   render() {
     return (
