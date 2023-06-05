@@ -7,11 +7,11 @@ export class ContactForm extends Component {
     number: '',
   };
 
-  // handleChange = ({ target }) => {
-  //   this.setState({
-  //     [target.name]: target.value,
-  //   });
-  // };
+  handleChange = ({ target }) => {
+    this.setState({
+      [target.name]: target.value,
+    });
+  };
 
   handleSubmit = event => {
     event.preventDefault();
